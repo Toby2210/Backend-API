@@ -1,0 +1,273 @@
+openapi: 3.0.0
+info:
+  version: 1.0.0
+  title: Back End Demonstration API
+  description: A simple blog API.
+  contact: 
+    name: CY Cheng
+    email: cycheng@vtc.edu.hk
+  license:
+    name: Apache 2.0
+    url: 'https://www.apache.org/licenses/LICENSE-2.0.html'
+servers:
+  - url: 'https://feec368b-f2cd-4c78-ba6d-d66f03597562-00-2xj5l7c94qwox.sisko.repl.co:3000/api/v1'
+    description: Development server
+tags:
+  - name: Users
+    description: API endpoints for user management.
+  - name: Articles
+    description: Access and perform CRUD operations on blog entries.
+  - name: Login
+    description: login user account
+      
+
+paths:
+  /users/{id}:
+    parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        required: true
+        description: Numeric id of the user
+    get:
+      tags:
+        - Users
+      description:
+        Get user by id.
+      responses:
+        '200':
+          description: user record.
+          content:
+            application/json:
+              schema:
+               type: object
+               properties:              
+               $ref: ./user.json#/definitions/user
+        '404':
+          description: User was not found in the DB.
+    put:
+      tags:
+        - Users
+      description:
+        Update user by ID.
+      requestBody:
+        description: Modify user record
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: ./user.json#/definitions/user
+      responses:
+        '200':
+          description: View of an user record.
+        '404':
+          description: User was not found in the DB.
+    delete:
+      tags:
+        - Users
+      description:
+        Delete user by ID.
+      responses:
+        '200':
+          description: View of user record.
+        '404':
+          description: User was not found in the DB.
+
+  /users/:
+    parameters:
+    - in: query
+      name: limit
+      schema:
+        type: integer
+      description: no. of  records to display with 10 records/page
+    - in: query
+      name: page
+      schema:
+        type: integer
+      description: starting page no.to display
+    - in: query
+      name: fields
+      schema:
+        type: string
+      description: fields to display
+    - in: query
+      name: q
+      schema:
+        type: string
+      description: specifiy the search criteria  for either fields of username or email
+    get:
+      tags:
+        - Users
+      description: Get all users
+      responses:
+       '200':
+         description: OK
+         content:
+           application/json:
+             schema:
+               type: array               
+               $ref: ./user.json#/definitions/user
+       '404':
+         description: Not Found  
+    post:
+      tags:
+       - Users
+      description: Create a new user
+      requestBody:
+        description: A new user data
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: ./user.json#/definitions/user
+      responses:
+        '201':
+          description: User created
+        '400':
+          description: Bad request
+  
+  /users/login:
+    post:
+      tags:
+       - Login
+      description: Login user account
+      requestBody:
+        description: login with username and password
+        required: true
+        content:
+          application/json:
+            schema:
+             type: object
+             properties:
+              username:
+                type: string
+                description: The user name.
+              password:
+                type: string
+                description: The user password.
+      responses:
+        '200':
+          description: user record.
+          content:
+            application/json:
+             schema:
+               type: object
+               properties:   
+                 id:
+                   type: integer
+                   description: The id of user. 
+                 username:
+                   type: string
+                   description: The user name.
+                 email:
+                   type: string
+                   description: The user email.
+                 avataurl:
+                   type: string
+                   description: The user avatar url.
+                 role:
+                   type: string
+                   description: The user role.  
+                 links:
+                   type: uri
+                   description: The  link to user info by id.
+
+        '404':
+          description: User was not found in the DB.
+        
+  /articles/{id}:
+    parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        required: true
+        description: Numeric id of the article
+    get:
+      tags:
+        - Articles
+      description:
+        Get article by id.
+      responses:
+        '200':
+          description: View of an article record.
+        '404':
+          description: Article was not found in the DB.
+    put:
+      tags:
+        - Articles
+      description:
+        Update article by ID.
+      requestBody:
+        description: A new article data
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: ./article.json#/definitions/article     
+      responses:
+        '200':
+          description: View of an article record.
+        '404':
+          description: Article was not found in the DB.
+    delete:
+      tags:
+        - Articles
+      description:
+        Delete article by ID.
+      responses:
+        '200':
+          description: View of an article record.
+        '404':
+          description: Article was not found in the DB.
+
+  /articles/: 
+    get:
+      tags:
+      - Articles
+      description: Get all articles
+      responses:
+        '200':
+          description: articles record.
+          content:
+            application/json:
+             schema:
+               type: object 
+               properties:   
+                 id:
+                   type: integer
+                   description: The id of article. 
+                 title:
+                   type: string
+                   description: The title of article.
+                 imageurl:
+                   type: string
+                   description: The link to image of article.
+                 summary:
+                   type: string
+                   description: summary of articles
+                 authorid:
+                   type: integer 
+                   description: The id of author.  
+                 links:
+                   type: uri array object
+                   description: include four links to likes,fav,msg and self with articleid respectively eg.articleid=1 [{"likes":"https://xxx:3000/api/v1/articles/1/likes"},{"fav":"https://xxx:3000/api/v1/articles/1/fav"},{"msg":"https://xxx:3000/api/v1/articles/1/msg"},{"self":"https:xxx:3000/api/v1/articles/1"}]
+          '404':
+            description: Not Found  
+    post:
+      tags:
+       - Articles
+      description: Create a new article
+      requestBody:
+        description: A new article data
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: ./article.json#/definitions/article
+      responses:
+        '201':
+          description: Articles created
+        '400':
+          description: Bad request

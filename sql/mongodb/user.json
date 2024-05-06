@@ -1,0 +1,34 @@
+[
+  {
+    "username":"alice", 
+    "email":"alice@example.com",
+    "articles":[
+      {
+      	"title":"title 1", 
+	      "allText": "some stuff", 
+	      "dateCreated": "2022-01-01"
+      },{
+	      "title": "another title", 
+	      "allText": "interesting", 
+	      "dateCreated": "2022-01-01"
+      },{
+        "title":"last one", 
+        "allText": "ok", 
+        "dateCreated": "2022-01-01"
+      }]
+  },
+  {
+	  "username":"bob", 
+	  "email":"bob@example.com"
+	},{
+	  "username":"colin", 
+	  "email":"colin@example.com",
+    "articles":[
+      {
+        "title": "this title is good", 
+        "allText": "some text", 
+        "dateCreated": "2022-01-01"
+      }
+    ]
+	}
+]

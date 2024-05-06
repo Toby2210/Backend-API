@@ -1,0 +1,45 @@
+{
+  "name": "blog-api",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@koa/cors": "^5.0.0",
+    "@types/koa": "^2.15.0",
+    "@types/koa__cors": "^5.0.0",
+    "@types/koa-bodyparser": "^4.3.12",
+    "@types/koa-json": "^2.0.23",
+    "@types/koa-logger": "^3.1.5",
+    "@types/koa-passport": "^6.0.3",
+    "@types/koa-router": "^7.4.8",
+    "@types/koa-static": "^4.0.4",
+    "fs": "^0.0.1-security",
+    "jsonschema": "^1.4.1",
+    "koa": "^2.15.2",
+    "koa-body": "^6.0.1",
+    "koa-bodyparser": "^4.4.1",
+    "koa-json": "^2.0.2",
+    "koa-logger": "^3.2.1",
+    "koa-passport": "^6.0.0",
+    "koa-router": "^12.0.1",
+    "koa-static": "^5.0.0",
+    "mime-types": "^2.1.35",
+    "passport-http": "^0.3.0",
+    "pg": "^8.11.5",
+    "pg-hstore": "^2.3.4",
+    "sequelize": "^6.37.3",
+    "tsx": "^4.7.1",
+    "typescript": "^5.4.3",
+    "uuid": "^9.0.1"
+  },
+  "devDependencies": {
+    "@types/mime-types": "^2.1.4",
+    "@types/passport-http": "^0.3.11",
+    "@types/uuid": "^9.0.8"
+  }
+}

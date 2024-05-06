@@ -1,0 +1,23 @@
+[
+  {
+	"title":"title 1", 
+	"allText": "some stuff", 
+	"dateCreated": "2022-01-01",
+	"authorID": 1
+},{
+	"title": "another title", 
+	"allText": "interesting", 
+	"dateCreated": "2022-01-01",
+	"authorID": 1
+},{
+  "title":"last one", 
+  "allText": "ok", 
+  "dateCreated": "2022-01-01",
+  "authorID": 1
+},{
+	"title": "this title is good", 
+	"allText": "some text", 
+	"dateCreated": "2022-01-01",
+	"authorID": 3
+}
+]

@@ -1,0 +1,198 @@
+recent
+shell:recent
+%temp%
+cleanmgr
+regedit
+netstat
+gpedit.msc
+C:\Users\user\AppData\Local\Packages\microsoft.windowscommunicationsapps_8wekyb3d8bbwe\LocalState
+win i
+win r
+
+windows/prefetch
+windows/download
+windows/temp
+
+裝置名稱	Relax168-HomePC
+處理器	12th Gen Intel(R) Core(TM) i5-12400   2.50 GHz
+已安裝記憶體(RAM)	16.0 GB (15.3 GB 可用)
+裝置識別碼	FB37F688-3169-4E55-8003-348690AB1B69
+產品識別碼	00330-80000-00000-AA185
+系統類型	64 位元作業系統，x64 型處理器
+手寫筆與觸控	此顯示器不提供手寫筆或觸控式輸入功能
+
+UPDATE articles SET imageurl='https://feec368b-f2cd-4c78-ba6d-d66f03597562-00-2xj5l7c94qwox.sisko.replit.dev:3000/api/v1/images/7d63562d-7399-48d4-b35b-98495f5e5e07' WHERE id=61;
+
+
+
+UPDATE articles SET imageurl='https://feec368b-f2cd-4c78-ba6d-d66f03597562-00-2xj5l7c94qwox.sisko.replit.dev:3000/api/v1/images/c362f876-beb0-4a8d-a8e2-73394281207f' WHERE id=2;
+
+UPDATE articles SET imageurl='https://feec368b-f2cd-4c78-ba6d-d66f03597562-00-2xj5l7c94qwox.sisko.replit.dev:3000/api/v1/images/e711bb1d-330c-4a64-bf25-19c17cad6e80' WHERE id=3;
+
+UPDATE articles SET imageurl='https://feec368b-f2cd-4c78-ba6d-d66f03597562-00-2xj5l7c94qwox.sisko.replit.dev:3000/api/v1/images/d3b1a04c-e885-40e5-ad43-1b1be1d299ed' WHERE id=4;
+
+UPDATE articles SET imageurl='https://feec368b-f2cd-4c78-ba6d-d66f03597562-00-2xj5l7c94qwox.sisko.replit.dev:3000/api/v1/images/c9cc3159-ed87-4109-a918-d6964c04784e
+' WHERE id=5;
+
+UPDATE articles SET imageurl='http://localhost:10888/api/v1/images/7d63562d-7399-48d4-b35b-98495f5e5e07' WHERE id=61;
+UPDATE articles SET imageurl='http://localhost:10888/api/v1/images/c362f876-beb0-4a8d-a8e2-73394281207f' WHERE id=2;
+UPDATE articles SET imageurl='http://localhost:10888/api/v1/images/e711bb1d-330c-4a64-bf25-19c17cad6e80' WHERE id=3;
+UPDATE articles SET imageurl='http://localhost:10888/api/v1/images/d3b1a04c-e885-40e5-ad43-1b1be1d299ed' WHERE id=4;
+UPDATE articles SET imageurl='http://localhost:10888/api/v1/image/sc9cc3159-ed87-4109-a918-d6964c04784e' WHERE id=5;
+UPDATE articles SET imageurl='http://localhost:10888/api/v1/images/96cbcc21-5b5e-4c3f-bf84-9ac667b5981b' WHERE id=62;
+UPDATE articles SET imageurl='http://localhost:10888/api/v1/images/70332330-2744-4013-8752-048045222afd' WHERE id=67;
+UPDATE articles SET imageurl='http://localhost:10888/api/v1/images/d3abd3a9-1af4-4baa-a0d6-fe75df2627f1' WHERE id=68;
+UPDATE articles SET imageurl='http://localhost:10888/api/v1/images/2e308af4-625e-41b2-904a-fe73fd07ff28' WHERE id=69;
+
+https://www.bezkoder.com/react-typescript-authentication-example/#Overview
+
+https://feec368b-f2cd-4c78-ba6d-d66f03597562-00-2xj5l7c94qwox.sisko.repl.co:3000/api/v1/images/70332330-2744-4013-8752-048045222afd
+
+Fix for browser buffer error
+npm i buffer
+<script>
+      /**
+       * this is a hack for error: global is not defined
+       */
+      var global = global || window
+ </script>
+
+import React from 'react';
+import ReactDOM from 'react-dom';
+import 'antd/dist/antd.css';
+import './index.css';
+import { Form, Icon, Input, Button, Checkbox } from 'antd';
+
+class NormalLoginForm extends React.PureComponent {
+  handleSubmit = (e) => {
+    e.preventDefault();
+    this.props.form.validateFields((err, values) => {
+      if (!err) {
+        console.log('Received values of form: ', values);
+      }
+    });
+  };
+
+  render() {
+    const { getFieldDecorator } = this.props.form;
+    return (
+      <Form onSubmit={this.handleSubmit} className="login-form">
+        <Form.Item>
+          {getFieldDecorator('username', {
+            rules: [{ required: true, message: 'Please input your username!' }],
+          })(
+            <Input
+              prefix={<Icon type="user" style={{ color: 'rgba(0,0,0,.25)' }} />}
+              placeholder="Username"
+            />
+          )}
+        </Form.Item>
+        <Form.Item>
+          {getFieldDecorator('password', {
+            rules: [{ required: true, message: 'Please input your Password!' }],
+          })(
+            <Input
+              prefix={<Icon type="lock" style={{ color: 'rgba(0,0,0,.25)' }} />}
+              type="password"
+              placeholder="Password"
+            />
+          )}
+        </Form.Item>
+        <Form.Item>
+          {getFieldDecorator('remember', {
+            valuePropName: 'checked',
+            initialValue: true,
+          })(<Checkbox>Remember me</Checkbox>)}
+          <a className="login-form-forgot" href="">
+            Forgot password
+          </a>
+          <Button
+            type="primary"
+            htmlType="submit"
+            className="login-form-button"
+          >
+            Log in
+          </Button>
+          Or <a href="">register now!</a>
+        </Form.Item>
+      </Form>
+    );
+  }
+}
+
+const WrappedNormalLoginForm = Form.create({ name: 'normal_login' })(
+  NormalLoginForm
+);
+
+ReactDOM.render(
+  <WrappedNormalLoginForm />,
+  document.getElementById('container')
+);
+
+import React from 'react';
+import ReactDOM from 'react-dom';
+import 'antd/dist/antd.css';
+import './index.css';
+import { Form, Input, Button, Checkbox } from 'antd';
+import { UserOutlined, LockOutlined } from '@ant-design/icons';
+
+const NormalLoginForm = () => {
+  const onFinish = values => {
+    console.log('Received values of form: ', values);
+  };
+
+  return (
+    <Form
+      name="normal_login"
+      className="login-form"
+      initialValues={{
+        remember: true,
+      }}
+      onFinish={onFinish}
+    >
+      <Form.Item
+        name="username"
+        rules={[
+          {
+            required: true,
+            message: 'Please input your Username!',
+          },
+        ]}
+      >
+        <Input prefix={<UserOutlined className="site-form-item-icon" />} placeholder="Username" />
+      </Form.Item>
+      <Form.Item
+        name="password"
+        rules={[
+          {
+            required: true,
+            message: 'Please input your Password!',
+          },
+        ]}
+      >
+        <Input
+          prefix={<LockOutlined className="site-form-item-icon" />}
+          type="password"
+          placeholder="Password"
+        />
+      </Form.Item>
+      <Form.Item>
+        <Form.Item name="remember" valuePropName="checked" noStyle>
+          <Checkbox>Remember me</Checkbox>
+        </Form.Item>
+
+        <a className="login-form-forgot" href="">
+          Forgot password
+        </a>
+      </Form.Item>
+
+      <Form.Item>
+        <Button type="primary" htmlType="submit" className="login-form-button">
+          Log in
+        </Button>
+        Or <a href="">register now!</a>
+      </Form.Item>
+    </Form>
+  );
+};
+
