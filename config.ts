@@ -1,11 +1,11 @@
 export const config = {
-  host: "localhost",
+  host: "satao.db.elephantsql.com",
   port: 5432,
-  user: "postgres",
-  password: '6003cem',
-  database: "postgres",
-  connection_limit: 100
-}
+  user: "olhufpqt",
+  password: "6FTr6TVnM3qJeHkl6NXpqMCrxa8SnXOv",
+  database: "olhufpqt",
+  connection_limit: 100,
+};
 
 /*
 export const config = {
