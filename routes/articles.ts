@@ -232,6 +232,7 @@ router.post('/', basicAuth, bodyParser(), validateArticle, createArticle);
 router.get('/:id([0-9]{1,})', getById);
 router.put('/:id([0-9]{1,})', basicAuth, bodyParser(),validateArticle, updateArticle);
 router.delete('/:id([0-9]{1,})', basicAuth, deleteArticle);
+
 router.get('/:id([0-9]{1,})/likes', likesCount);
 router.post('/:id([0-9]{1,})/likes', basicAuth, likePost);
 router.del('/:id([0-9]{1,})/likes', basicAuth, dislikePost);
