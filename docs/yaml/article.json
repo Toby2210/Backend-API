@@ -35,7 +35,11 @@
         "description": {
           "description": "description of articles in more details",
           "type": "string"  
-        }        
+        },
+        "location": {
+          "description": "location of pet",
+          "type": "string"
+        }
       },
       "required": ["title", "alltext", "authorid"]
     }

@@ -1,5 +1,6 @@
-CREATE TABLE public.articles (
+CREATE TABLE public.pet (
 	id serial,
+	location varchar(32) NOT NULL,
 	title varchar(32) NOT NULL,
 	alltext text NOT NULL,
 	summary text NULL,

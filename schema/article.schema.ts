@@ -1,39 +1,43 @@
 export const article = {
-  "$schema": "http://json-schema.org/draft-04/schema#",
-  "id": "/article",
-  "title": "Article",
-  "description": "An article in the blog",
-  "type": "object",
-  "properties": {
-    "title": {
-      "description": "Main title of the blog article",
-      "type": "string"
+  $schema: "http://json-schema.org/draft-04/schema#",
+  id: "/article",
+  title: "Article",
+  description: "An article in the blog",
+  type: "object",
+  properties: {
+    title: {
+      description: "Main title of the blog article",
+      type: "string",
     },
-    "alltext": {
-      "description": "Body text of the blog article",
-      "type": "string"
+    alltext: {
+      description: "Body text of the blog article",
+      type: "string",
     },
-    "summary": {
-      "description": "Optional short text summary of article",
-      "type": "string"
+    summary: {
+      description: "Optional short text summary of article",
+      type: "string",
     },
-    "imageURL": {
-      "description": "URL for main image to show in article",
-      "type": "uri"
+    imageURL: {
+      description: "URL for main image to show in article",
+      type: "uri",
     },
-    "published": {
-      "description": "Is the article published or not",
-      "type": "boolean"
+    published: {
+      description: "Is the article published or not",
+      type: "boolean",
     },
-    "authorid": {
-      "description": "User ID of the article author",
-      "type": "integer",
-      "minimum": 0
+    authorid: {
+      description: "User ID of the article author",
+      type: "integer",
+      minimum: 0,
     },
-    "description": {
-      "description": "description of articles in more details",
-      "type": "string"  
-    }        
+    description: {
+      description: "description of articles in more details",
+      type: "string",
+    },
+    location: {
+      description: "location of pet",
+      type: "string",
+    },
   },
-  "required": ["title", "alltext", "authorid"]
-}
+  required: ["title", "alltext", "authorid"],
+};
