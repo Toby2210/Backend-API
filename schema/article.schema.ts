@@ -38,6 +38,10 @@ export const article = {
       description: "location of pet",
       type: "string",
     },
+    breed: {
+      description: "breed of pet",
+      type: "string",
+    }
   },
   required: ["title", "alltext", "authorid"],
 };

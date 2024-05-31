@@ -57,6 +57,7 @@ const getAll = async (ctx: RouterContext, next: any) => {
         authorid = 0,
         description = "",
         location = "",
+        breed = "",
       }: Partial<Post> = post;
       const links = {
         likes: `http://${ctx.host}/api/v1/articles/${post.id}/likes`,
@@ -73,6 +74,7 @@ const getAll = async (ctx: RouterContext, next: any) => {
         authorid,
         description,
         location,
+        breed,
         links,
       }; // Utilizing the destructured elements
     });
