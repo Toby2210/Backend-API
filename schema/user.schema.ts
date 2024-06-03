@@ -14,7 +14,7 @@ export const user = {
       "type": "string"
     },
     "password": {
-      "description": "email of user",
+      "description": "password of user",
       "type": "password"
     },
     "avatarurl": {

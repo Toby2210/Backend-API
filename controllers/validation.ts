@@ -35,6 +35,7 @@ export const validateUser = async (ctx: RouterContext, next: any) => {
     await next()
   } catch (error) {
     if (error instanceof ValidationError) {
+      console.log(error)
       ctx.body = error;
       ctx.status = 400;
     } else {

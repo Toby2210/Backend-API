@@ -49,6 +49,8 @@ export const  update= async(user:any,id:any)  =>{
 
   //console.log("user " , user)
  // console.log("id ",id)
+  console.log(user)
+  console.log(id)
   let keys = Object.keys(user)
   let values = Object.values(user)  
   let updateString=""

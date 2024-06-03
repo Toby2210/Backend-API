@@ -152,7 +152,7 @@ router.get('/', basicAuth, doSearch);
 //router.get('/search', basicAuth, doSearch);
 router.post('/', bodyParser(), validateUser, createUser);
 router.get('/:id([0-9]{1,})', getById);
-router.put('/:id([0-9]{1,})',bodyParser(), validateUser,  updateUser);
+router.put('/:id([0-9]{1,})',bodyParser(),  updateUser);
 router.del('/:id([0-9]{1,})', deleteUser);
 router.post('/login', basicAuth, login);
 
