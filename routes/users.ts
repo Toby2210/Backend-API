@@ -3,6 +3,7 @@ import { validateUser } from "../controllers/validation";
 import Router from 'koa-router';
 import bodyParser from 'koa-bodyparser';
 import * as model from '../models/users';
+import bcrypt from 'bcryptjs';
 
 const prefix = '/api/v1/users';
 const router:Router = new Router({ prefix: prefix });
@@ -86,6 +87,8 @@ const doSearch = async(ctx: any, next: any) =>{
       avatarurl=body.avatarurl;
     let username:string= body.username;
     let password:string = body.password;
+    const salt = bcrypt.genSaltSync(10);
+    const hashedPassword = bcrypt.hashSync(password , salt);
     let email:any = body.email;
     let role:string = 'user';
     let secretkey:string = body.actiCode;
@@ -98,7 +101,7 @@ const doSearch = async(ctx: any, next: any) =>{
        }
      }
     console.log("role ", role)
-    let newUser = {username: username, password: password, email: email, avatarurl: avatarurl, role: role};
+    let newUser = {username: username, password: hashedPassword,passwordsalt:salt, email: email, avatarurl: avatarurl, role: role};
     
   let result = await model.add(newUser);
   if (result) {

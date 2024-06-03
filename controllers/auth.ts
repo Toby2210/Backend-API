@@ -1,13 +1,17 @@
 import passport from "koa-passport";
 import { BasicStrategy } from "passport-http";
 import { RouterContext } from "koa-router";
-
+import bcrypt from 'bcryptjs';
 import * as users  from '../models/users';
 
 const verifyPassword = (user: any, password: string) => {
   console.log('user return pwd: '+user.password);
+  console.log('user return salt: '+user.passwordsalt);
+  const salt = user.passwordsalt;
+  const hashedPassword = bcrypt.hashSync(password , salt);
   console.log('input password '+ password)
-  return user.password === password;
+  console.log('hashed password '+ hashedPassword)
+  return user.password === hashedPassword;
 }
 
 passport.use(new BasicStrategy(async (username, password, done) => {
