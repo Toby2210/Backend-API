@@ -1,4 +1,5 @@
 import * as db from '../helpers/database';
+import bcrypt from 'bcryptjs';
 
 export const getAll = async  (limit=10, page=1) =>{
   const offset = (page - 1) * limit;
@@ -51,6 +52,14 @@ export const  update= async(user:any,id:any)  =>{
  // console.log("id ",id)
   console.log(user)
   console.log(id)
+  // Generate a new salt
+  const salt = await bcrypt.genSalt(10);
+  // Hash the password with the new salt if present in the user object
+  if (user.password) {
+    const hashedPassword = await bcrypt.hash(user.password, salt);
+    user.password = hashedPassword;
+    user.passwordsalt = salt; // Set the new salt in the user object
+  }
   let keys = Object.keys(user)
   let values = Object.values(user)  
   let updateString=""
@@ -76,3 +85,18 @@ export const deleteById = async (id:any) => {
     return error
   }
 }
+
+export const compare = async (username: string, email: string) => {
+  let query = `SELECT id FROM users WHERE username = ? AND email = ?`;
+  let values = [username, email];
+  try {
+    const result = await db.run_query(query, values);
+    if (result.length > 0) {
+      return result[0].id; 
+    } else {
+      return null; 
+    }
+  } catch (error) {
+    throw error; 
+  }
+};

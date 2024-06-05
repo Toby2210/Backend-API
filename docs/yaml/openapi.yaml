@@ -126,7 +126,25 @@ paths:
           description: User created
         '400':
           description: Bad request
-  
+
+  /users/forget:
+    post:
+      tags:
+        - Users
+      description: Check email and username is match or not.
+      requestBody:
+        description: username and email
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: ./user.json#/definitions/user
+      responses:
+        '200':
+          description: Return the userid.
+        '404':
+          description: No matching record found for the provided username and email.
+
   /users/login:
     post:
       tags:
